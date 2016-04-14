@@ -17,6 +17,14 @@ namespace SharpShapes
             Console.WriteLine("4. Cube");
             Console.WriteLine("5. Cylinder");
             Console.Write("> ");
+            string shapeSelection = Console.ReadLine();
+            Console.WriteLine("You chose " + shapeSelection + "." + System.Environment.NewLine);
+            Console.WriteLine("Enter the height, width, and depth separated by commas");
+            Console.Write("> ");
+            string dimensions = Console.ReadLine();
+            Console.WriteLine(dimensions);
+            // calculate total volume of the shape
+
             Console.Read();
         }
     }
