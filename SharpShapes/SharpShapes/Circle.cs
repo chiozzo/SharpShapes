@@ -9,16 +9,15 @@ namespace SharpShapes
     public class Circle : Shape
     {
         public double radius { get; set; }
-        double pi = 3.14;
 
         public override double calculateArea()
         {
-            return pi * ( radius * radius );
+            return Math.PI * ( radius * radius );
         }
 
         public double calculateSphereVolume()
         {
-            return (4/3) * pi * ( radius * radius * radius );
+            return (4/3) * Math.PI * ( radius * radius * radius );
         }
 
         public double calculateCylinderVolume()
