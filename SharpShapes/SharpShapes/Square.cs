@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharpShapes
 {
-    class Square : Shape
+    public class Square : Shape
     {
     }
 }

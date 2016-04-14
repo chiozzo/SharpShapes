@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharpShapes
 {
-    class Rhombus : Shape
+    public class Rhombus : Shape
     {
         public double horizontalDiagonal { get; set; }
         public double verticalDiagonal { get; set; }
