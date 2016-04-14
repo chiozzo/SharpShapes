@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace SharpShapes
 {
-    public class Square : Shape
+  public class Square : ITwoDimensional
+  {
+    public double height { get; set; }
+    public double width { get; set; }
+
+    public double calculateArea()
     {
+      return this.height * this.width;
     }
+  }
 }

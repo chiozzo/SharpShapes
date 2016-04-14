@@ -28,15 +28,15 @@ namespace SharpShapesTest
     [TestMethod]
     public void TestCylinderVolume()
     {
-      Circle testCylinder = new Circle();
+      Cylinder testCylinder = new Cylinder();
       foreach (double radius in testRadii)
       {
         testCylinder.radius = radius;
-        foreach (double height in testHeights)
+        foreach (double depth in testDepths)
         {
-          testCylinder.height = height;
-          double actual = testCylinder.calculateCylinderVolume();
-          double expected = Math.PI * ( radius * radius ) * height;
+          testCylinder.depth = depth;
+          double actual = testCylinder.calculateVolume();
+          double expected = Math.PI * ( radius * radius ) * depth;
           Assert.AreEqual(actual, expected);
         }
       }
@@ -62,7 +62,7 @@ namespace SharpShapesTest
     [TestMethod]
     public void TestCubeVolume()
     {
-      Square testCube = new Square();
+      Cube testCube = new Cube();
       foreach (double height in testHeights)
       {
         testCube.height = height;
@@ -78,32 +78,6 @@ namespace SharpShapesTest
           }
         }
       }
-    }
-
-    [TestMethod]
-    public void TestShapeType()
-    {
-        Shape simple = new Shape();
-        Assert.IsInstanceOfType(simple, typeof(Shape));
-    }
-
-    [TestMethod]
-    public void TestShapeArea()
-    {
-        Shape simple = new Shape();
-        simple.width = 2;
-        simple.height = 2;
-        Assert.IsTrue(simple.calculateArea() == 4);
-    }
-
-    [TestMethod]
-    public void TestShapeVolume()
-    {
-        Shape simple = new Shape();
-        simple.width = 2;
-        simple.height = 3;
-        simple.depth = 5;
-        Assert.IsTrue(simple.calculateVolume() == 30);
     }
   }
 }

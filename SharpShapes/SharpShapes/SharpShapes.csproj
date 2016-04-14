@@ -43,9 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="Cube.cs" />
+    <Compile Include="Cylinder.cs" />
+    <Compile Include="IThreeDimensional.cs" />
+    <Compile Include="ITwoDimensional.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shape.cs" />
     <Compile Include="Rhombus.cs" />
     <Compile Include="Square.cs" />
   </ItemGroup>
