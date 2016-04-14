@@ -8,16 +8,16 @@ namespace SharpShapes
 {
     public class Shape
     {
-        public int depth { get; set; }
-        public int height { get; set; }
-        public int width { get; set; }
+        public double depth { get; set; }
+        public double height { get; set; }
+        public double width { get; set; }
 
-        public int calculateArea()
+        public virtual double calculateArea()
         {
             return this.height * this.width;
         }
 
-        public int calculateVolume()
+        public virtual double calculateVolume()
         {
             return this.height * this.width * this.depth;
         }
