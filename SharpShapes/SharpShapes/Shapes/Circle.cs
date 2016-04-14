@@ -14,12 +14,5 @@ namespace SharpShapes
     {
       return Math.PI * ( radius * radius );
     }
-
-    /*
-    public double calculateSphereVolume()
-    {
-      return (4/3) * Math.PI * ( radius * radius * radius );
-    }
-    */
   }
 }
