@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharpShapes
 {
-  public class Square : ITwoDimensional
+  public class Square : Shape, ITwoDimensional
   {
     public double height { get; set; }
     public double width { get; set; }
