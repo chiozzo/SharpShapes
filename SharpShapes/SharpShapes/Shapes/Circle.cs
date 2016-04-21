@@ -8,11 +8,5 @@ namespace SharpShapes
 {
   public class Circle : Shape
   {
-    public double radius { get; set; }
-
-    public double calculateArea()
-    {
-      return Math.PI * ( radius * radius );
-    }
   }
 }

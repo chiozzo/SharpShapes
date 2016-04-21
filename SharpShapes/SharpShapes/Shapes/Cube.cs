@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharpShapes
 {
-  public class Cube : Square, IThreeDimensional
+  public class Cube : Square
   {
-    public double depth { get; set; }
-
-    public double calculateVolume()
-    {
-      return this.height * this.width * this.depth;
-    }
   }
 }

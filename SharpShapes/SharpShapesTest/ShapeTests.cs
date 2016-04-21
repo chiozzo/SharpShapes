@@ -18,8 +18,7 @@ namespace SharpShapesTest
       Circle testCircle = new Circle();
       foreach (double radius in testRadii)
       {
-        testCircle.radius = radius;
-        double actual = testCircle.calculateArea();
+        double actual = testCircle.calculateArea(radius);
         double expected = Math.PI * ( radius * radius );
         Assert.AreEqual(actual, expected);
       }
@@ -31,11 +30,9 @@ namespace SharpShapesTest
       Cylinder testCylinder = new Cylinder();
       foreach (double radius in testRadii)
       {
-        testCylinder.radius = radius;
         foreach (double depth in testDepths)
         {
-          testCylinder.depth = depth;
-          double actual = testCylinder.calculateVolume();
+          double actual = testCylinder.calculateVolume(radius, depth);
           double expected = Math.PI * ( radius * radius ) * depth;
           Assert.AreEqual(actual, expected);
         }
@@ -48,11 +45,9 @@ namespace SharpShapesTest
       Square testSquare = new Square();
       foreach (double height in testHeights)
       {
-        testSquare.height = height;
         foreach (double width in testWidths)
         {
-          testSquare.width = width;
-          double actual = testSquare.calculateArea();
+          double actual = testSquare.calculateArea(height, width);
           double expected = height * width;
           Assert.AreEqual(actual, expected);
         }
@@ -65,14 +60,11 @@ namespace SharpShapesTest
       Cube testCube = new Cube();
       foreach (double height in testHeights)
       {
-        testCube.height = height;
         foreach (double width in testWidths)
         {
-          testCube.width = width;
           foreach (double depth in testDepths)
           {
-            testCube.depth = depth;
-            double actual = testCube.calculateVolume();
+            double actual = testCube.calculateVolume(height, width, depth);
             double expected = height * width * depth;
             Assert.AreEqual(actual, expected);
           }

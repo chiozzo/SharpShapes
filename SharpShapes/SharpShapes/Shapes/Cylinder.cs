@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace SharpShapes
 {
-  public class Cylinder : Circle, IThreeDimensional
+  public class Cylinder : Circle
   {
-    public double depth { get; set; }
-
-    public double calculateVolume()
-    {
-      return this.calculateArea() * depth;
-    }
   }
 }

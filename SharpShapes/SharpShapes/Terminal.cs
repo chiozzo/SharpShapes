@@ -60,23 +60,23 @@ namespace SharpShapes
       string dimensionsToAskFor = "Please give me the ";
       switch (shapeSelection)
       {
-        case "circle": dimensionsToAskFor += "radius";
+        case "circle": dimensionsToAskFor += "radius ";
           break;
-        case "square": dimensionsToAskFor += "height and width";
-          dimensionsToAskFor += " (i.e. 5x7)";
+        case "square": dimensionsToAskFor += "height and width ";
+          dimensionsToAskFor += "(i.e. 5x7) ";
           break;
-        case "rhombus": dimensionsToAskFor += "vertical height and horizontal width";
-          dimensionsToAskFor += " (i.e. 5x7)";
+        case "rhombus": dimensionsToAskFor += "vertical height and horizontal width ";
+          dimensionsToAskFor += "(i.e. 5x7) ";
           break;
-        case "cube": dimensionsToAskFor += "height, width, and depth";
-          dimensionsToAskFor += " (i.e. 5x7x9)";
+        case "cube": dimensionsToAskFor += "height, width, and depth ";
+          dimensionsToAskFor += "(i.e. 5x7x9) ";
           break;
-        case "cylinder": dimensionsToAskFor += "radius and depth";
-          dimensionsToAskFor += " (i.e. 5x7)";
+        case "cylinder": dimensionsToAskFor += "radius and depth ";
+          dimensionsToAskFor += "(i.e. 5x7) ";
           break;
         default: throw new ArgumentException();
       }
-      dimensionsToAskFor += " of the " + shapeSelection + ".";
+      dimensionsToAskFor += "of the " + shapeSelection + ".";
       return dimensionsToAskFor;
     }
 
@@ -144,6 +144,44 @@ namespace SharpShapes
         dimensionString += "The depth is : " + shapeDimensions["depth"];
       }
       return dimensionString;
+    }
+
+    public double calculateShapesAreaOrVolume(Shape userShape, Dictionary<string, double> shapeDimensions)
+    {
+      if (userShape is Circle)
+      {
+        return userShape.calculateArea(shapeDimensions["radius"]);
+      }
+      else if (userShape is Square || userShape is Rhombus)
+      {
+        return userShape.calculateArea(shapeDimensions["height"], shapeDimensions["width"]);
+      }
+      else if (userShape is Cylinder)
+      {
+        return userShape.calculateVolume(shapeDimensions["radius"], shapeDimensions["depth"]);
+      }
+      else if (userShape is Cube)
+      {
+        return userShape.calculateVolume(shapeDimensions["height"], shapeDimensions["width"], shapeDimensions["depth"]);
+      }
+      throw new Exception();
+    }
+
+    public string printAreaOrVolumeTotal(Shape userShape, string shapeSelection, double areaOrVolume)
+    {
+      string areaOrVolumeString = "The ";
+      if (userShape is Circle || userShape is Square || userShape is Rhombus)
+      {
+        areaOrVolumeString += "area ";
+      }
+      else if (userShape is Cylinder || userShape is Cube)
+      {
+        areaOrVolumeString += "volume ";
+      }
+      areaOrVolumeString += "of your " + shapeSelection.ToLower() + " is ";
+      areaOrVolumeString += areaOrVolume;
+      return areaOrVolumeString;
+
     }
   }
 }

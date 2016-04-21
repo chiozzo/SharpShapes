@@ -13,19 +13,26 @@ namespace SharpShapes
       Terminal UI = new Terminal();
       while (true)
       {
+        // ask user to select a shape
         Console.Write(UI.AskUserForShape());
-
         string shapeSelection = Console.ReadLine();
-        Shape userShape = UI.CreateObjectFromUserInput(shapeSelection);
         Console.WriteLine(UI.confirmUserSelectedShape(shapeSelection));
-        Console.Write(System.Environment.NewLine);
+
+        // create the shape object based on the user input
+        Shape userShape = UI.CreateObjectFromUserInput(shapeSelection);
+
+        // ask user to dimensions of selected shape
         Console.WriteLine(UI.AskUserForProperDimensions(shapeSelection));
         Console.Write("> ");
         string shapeDimensions = Console.ReadLine();
+
+        // parse the shape dimensions
         Dictionary<string, double> dimensions = UI.parseShapeDimensions(userShape, shapeDimensions);
         Console.WriteLine(UI.printFormattedDimensions(userShape, dimensions));
+        
         // calculate total volume of the shape
-
+        double totalAreaOrVolume = UI.calculateShapesAreaOrVolume(userShape, dimensions);
+        Console.WriteLine(UI.printAreaOrVolumeTotal(userShape, shapeSelection, totalAreaOrVolume));
         Console.Read();
       }
     }
