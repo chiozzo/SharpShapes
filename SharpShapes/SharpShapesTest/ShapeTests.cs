@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpShapes;
+using System.Collections.Generic;
 
 namespace SharpShapesTest
 {
@@ -69,6 +70,59 @@ namespace SharpShapesTest
             Assert.AreEqual(actual, expected);
           }
         }
+      }
+    }
+
+    Shape[] shapeCreatedArray = { new Circle(), new Square(), new Rhombus(), new Cube(), new Cylinder() };
+
+    [TestMethod]
+    public void TestWillCreateCorrectShapeFromUserInput()
+    {
+      string[] shapeRequestedArray = { "circle", "square", "rhombus", "cube", "cylinder" };
+
+      Terminal UI = new Terminal();
+      for (int i = 0; i < shapeRequestedArray.Length; i++)
+      {
+        Assert.IsInstanceOfType(UI.CreateObjectFromUserInput(shapeRequestedArray[i]), shapeCreatedArray[i].GetType());
+      }
+    }
+
+    [TestMethod]
+    public void TestWillParseDimensionsBasedOnShape()
+    {
+      Dictionary<string, double> circleDimensions =  new Dictionary<string, double>()
+      {
+        { "radius", 5 }
+      };
+      Dictionary<string, double> squareDimensions = new Dictionary<string, double>()
+      {
+        { "height", 5 },
+        { "width", 2.5 }
+      };
+      Dictionary<string, double> rhombusDimensions = new Dictionary<string, double>()
+      {
+        { "height", 3.4 },
+        { "width", 7.9 }
+      };
+      Dictionary<string, double> cubeDimensions = new Dictionary<string, double>()
+      {
+        { "height", 234 },
+        { "width", 546 },
+        { "depth", 869 }
+      };
+      Dictionary<string, double> cylinderDimensions = new Dictionary<string, double>()
+      {
+        { "radius", 12 },
+        { "depth", 9.9 }
+      };
+      string[] shapeRequestedDimensions = { "5", "5x2.5", "3.4x7.9", "234x546x869", "12x9.9" };
+      Dictionary<string, double>[] shapeParsedDimensions = { circleDimensions, squareDimensions, rhombusDimensions, cubeDimensions, cylinderDimensions };
+
+      Terminal UI = new Terminal();
+      for (int i = 0; i < shapeRequestedDimensions.Length; i++)
+      {
+        Dictionary<string, double> actual = UI.parseShapeDimensions(shapeCreatedArray[i], shapeRequestedDimensions[i]);
+
       }
     }
   }
